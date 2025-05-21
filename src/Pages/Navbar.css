@@ -1,0 +1,74 @@
+.navbar {
+    width: 280px;
+    background: rgb(240, 230, 230);
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    transition-duration: 1s;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: rgb(108, 96, 96);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.nav-link:hover {
+    background-color: #444;
+    color: antiquewhite;
+}
+
+.nav-link.active {
+    color: purple;
+    background-color: white;
+}
+
+.about-row {
+    width: 300px;
+    height: 400px;
+    background-color: red;
+    border-radius: 10px;
+    margin-top: 20px;
+    transition: all;
+    transition-property: all;
+    font-size: 45px;
+    color: antiquewhite;
+    text-align: center;
+}
+
+.contact {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: blue;
+    margin-top: 20px;
+    transition: margin-right 2s;
+    transition-property: all;
+    transition-delay: 4ms;
+    transition-timing-function: ease;
+    font-size: 45px;
+    text-align: center;
+    color: antiquewhite;
+}
+
+.home-row {
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    background-color: blue;
+    margin-top: 20px;
+    transition: margin-left 2s;
+    transition-property: all;
+    transition-delay: 44ms;
+    transition-timing-function: ease;
+    font-size: 45px;
+    color: white;
+    text-align: center;
+}

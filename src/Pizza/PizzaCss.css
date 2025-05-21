@@ -1,0 +1,113 @@
+.load-btn {
+    padding: 2px 7px;
+    transform: translate(370px, -69px);
+    border-radius: 50%;
+
+}
+
+.load-par {
+    font-size: 20px;
+    transform: translate(30px, 28px);
+}
+
+.save-btn {
+    padding: 10px 30px;
+    background-color: blue;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    margin-left: 7px;
+}
+
+.save-btn:hover {
+    background-color: rgb(92, 92, 155);
+}
+
+.save-btn1 {
+    padding: 10px 30px;
+    border-radius: 4px;
+    background-color: #5a5151;
+    color: white;
+    border: none;
+    font-size: 15px;
+}
+
+.save-btn1:hover {
+    background-color: black;
+}
+
+.reset-btn {
+    padding: 10px 50px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    background-color: #5a5151;
+    font-size: 17px;
+    margin-left: -7px;
+}
+
+.reset-btn:hover {
+    background-color: black;
+}
+
+.submit-btn {
+    padding: 10px 50px;
+    border-radius: 4px;
+    border: none;
+    background-color: blue;
+    color: white;
+    font-size: 17px;
+}
+
+.submit-btn:hover {
+    background-color: rgb(102, 102, 156);
+}
+
+.showcoupon {
+    width: 300px;
+    display: flex;
+    gap: 10px;
+    transform: translate(400px, -30px);
+}
+
+.img {
+    width: 170px;
+    height: 150px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+}
+
+.checkout:hover {
+    background-color: rgb(129, 129, 225);
+
+}
+
+.checkout {
+    width: 140px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 19px;
+    border-radius: 8px;
+    background-color: blue;
+    color: white;
+    border: none;
+    font-size: 19px;
+}
+
+.save:hover {
+    background-color: rgb(121, 184, 26);
+}
+
+.save {
+    width: 140px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 8px;
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 19px;
+}
