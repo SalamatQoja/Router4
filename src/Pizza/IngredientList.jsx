@@ -65,11 +65,19 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
             </div>
 
             {savePizza && (
-                <h3 style={{
+                <div tyle={{
                     color: "green", width: "440px", textAlign: "center", marginLeft: "-20px"
                 }}>
-                    Your pizza configuration has been saved. Your numbers is: -McOCXqrX4fwJZGHvrf
-                </h3>
+                    <h3>Your pizza configuration has been saved. Your numbers is:</h3>
+                    <ul>
+                        {selectedItems.map((item) => (
+                            <li key={item.code}>
+                                <strong>{item.code}</strong>
+                                -{item.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
 
             {loadPizza && (
@@ -93,7 +101,7 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                                 borderRadius: "4px", border: "none", padding: "7px 12px", marginLeft: "7px"
                             }}>Submit</button>
                         </div>
-                        <button onClick={() => setLoadPizza(false)}className="load-btn">x</button>
+                        <button onClick={() => setLoadPizza(false)} className="load-btn">x</button>
                     </div>
 
                 </div>
@@ -114,7 +122,7 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                             {step === "summary" ? (
                                 <>
                                     <h2 style={{ textAlign: "center", fontSize: "29px" }}>Your Order</h2>
-                                    <p style={{ fontSize: "17px", marginLeft: "6px"}}>The pizza has the following ingredients:</p>
+                                    <p style={{ fontSize: "17px", marginLeft: "6px" }}>The pizza has the following ingredients:</p>
                                     <ul style={{ marginLeft: "38px", marginTop: "25px" }}>
                                         {selectedItems.map(item => (
                                             <li key={item.id} style={{ fontSize: "18px" }}>
@@ -125,18 +133,19 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                                     </ul>
                                     <h3 style={{ textAlign: "center", fontSize: "25px" }}>Total price: ${totalPrice.toFixed(2)}</h3>
                                     <h3 style={{ textAlign: "center", marginTop: "-10px" }}>Continue to checkout?</h3>
-                                    <div style={{ display: "flex", justifyContent: "space-between", marginTop: "70px", 
+                                    <div style={{
+                                        display: "flex", justifyContent: "space-between", marginTop: "70px",
                                         width: "225px", marginLeft: "7px"
-                                     }}>
+                                    }}>
                                         <button
                                             onClick={() => setIsModalOpen(false)}
-                                           className="save-btn1"
+                                            className="save-btn1"
                                         >
                                             Cancel
                                         </button>
                                         <button
                                             onClick={() => setStep("form")}
-                                           className="save-btn"
+                                            className="save-btn"
                                         >
                                             Continue
                                         </button>
@@ -144,8 +153,10 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                                 </>
 
                             ) : (
-                                <div style={{ width: "1300px", display: "flex", flexDirection: "column", flexWrap: "wrap",
-                                backgroundColor: "white", marginLeft: "-450px" }}>
+                                <div style={{
+                                    width: "1300px", display: "flex", flexDirection: "column", flexWrap: "wrap",
+                                    backgroundColor: "white", marginLeft: "-450px"
+                                }}>
                                     <div style={{ marginLeft: "230px" }}>
                                         <h3 style={{ fontSize: "28px", marginLeft: "325px" }}>Ingredient info:</h3>
                                         <ul style={{
@@ -187,8 +198,10 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                                             </select>
                                         </div>
                                         <div style={{ display: "flex", flexDirection: "row" }}>
-                                            <label style={{ fontSize: "20px" }}>Aditional notes</label><textarea style={{ padding: "8px", 
-                                                marginLeft: "37px", width: "520px", borderRadius: "4px" }} />
+                                            <label style={{ fontSize: "20px" }}>Aditional notes</label><textarea style={{
+                                                padding: "8px",
+                                                marginLeft: "37px", width: "520px", borderRadius: "4px"
+                                            }} />
                                         </div>
                                         <div style={{ display: "flex", marginLeft: "-23px", flexDirection: "row", width: "380px", justifyContent: "space-evenly" }}>
                                             <label style={{ fontSize: "18px" }}>Are you a regular client?</label>
