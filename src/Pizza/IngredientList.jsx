@@ -7,6 +7,21 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
     const [showCoupon, setShowCoupon] = useState(false);
     const [savePizza, setSavePizza] = useState(false);
     const [loadPizza, setLoadPizza] = useState(false);
+    const [loadCode, setLoadCode] = useState("");
+    const [savedConfigs, setSavedConfigs] = useState({});
+    const [generatedCode, setGeneratedCode] = useState(null);
+
+    useEffect(() => {
+        if (savePizza) {
+            const code = Math.random().toString(36).substring(2, 15); // уникальный код
+            const config = {};
+            selectedItems.forEach(item => {
+                config[item.id] = selected[item.id].count;
+            });
+            setSavedConfigs(prev => ({ ...prev, [code]: config }));
+            setGeneratedCode(code);
+        }
+    }, [savePizza]);
 
     const selectedItems = ingredients.filter(item => selected[item.id]?.count > 0);
     const totalPrice = selectedItems.reduce((total, item) => {
@@ -91,11 +106,37 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                     }}>
                         <p className="load-par">Load pizza using a configuration number:</p>
                         <div style={{ marginTop: "40px", height: "10px" }}>
-                            <input type="text" placeholder="-McOCXqrX4fwJZGHvrf" style={{
-                                width: "250px",
-                                marginLeft: "30px", padding: "6px", borderRadius: "3px"
-                            }} />
-                            <button onClick={(e) => selected(true) } type="submit" style={{
+                            <input type="text"
+                                placeholder="vedite kod"
+                                value={loadCode}
+                                onChange={(e) => setLoadCode(e.target.value)}
+                                style={{
+                                    width: "250px",
+                                    marginLeft: "30px", padding: "6px",
+                                    borderRadius: "3px"
+                                }} />
+                            <button onClick={() => {
+                                const config = enable[loadCode];
+                                if (config) {
+                                    ingredients.forEach(item => {
+                                        const count = config[item.id] || 0;
+                                        const current = selected[item.id] ?.count || 0;
+                                        if(count > current) {
+                                            for(let i = 0; i < count - current; i++) {
+                                                onAdd(item);
+                                            }
+                                        } else if (count < current) {
+                                            for(let i = 0; i < current - count; i++) {
+                                                onRemove(item);
+                                            }
+                                        }
+                                    });
+                                    setLoadPizza(false);
+                                }else {
+                                    alert("kod ne nayden");
+                                }
+                            }}
+                             type="submit" style={{
                                 backgroundColor: "blue", color: "white",
                                 borderRadius: "4px", border: "none", padding: "7px 12px", marginLeft: "7px"
                             }}>Submit</button>
