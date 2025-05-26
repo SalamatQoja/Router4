@@ -83,7 +83,7 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                 <div tyle={{
                     color: "green", width: "440px", textAlign: "center", marginLeft: "-20px"
                 }}>
-                    <h3>Your pizza configuration has been saved. Your numbers is:</h3>
+                    <h3>Your pizza configuration has been saved. Your numbers is::</h3>
                     <ul>
                         {selectedItems.map((item) => (
                             <li key={item.code}>
