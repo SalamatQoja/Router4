@@ -10,6 +10,10 @@
     transform: translate(30px, 28px);
 }
 
+li{
+    list-style-type: none;
+}
+
 .save-btn {
     padding: 10px 30px;
     background-color: blue;

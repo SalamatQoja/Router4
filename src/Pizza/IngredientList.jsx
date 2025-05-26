@@ -73,7 +73,6 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                         {selectedItems.map((item) => (
                             <li key={item.code}>
                                 <strong>{item.code}</strong>
-                                -{item.name}
                             </li>
                         ))}
                     </ul>
@@ -96,7 +95,7 @@ export default function IngredientList({ ingredients, selected, onAdd, onRemove 
                                 width: "250px",
                                 marginLeft: "30px", padding: "6px", borderRadius: "3px"
                             }} />
-                            <button type="submit" style={{
+                            <button onClick={(e) => selected(true) } type="submit" style={{
                                 backgroundColor: "blue", color: "white",
                                 borderRadius: "4px", border: "none", padding: "7px 12px", marginLeft: "7px"
                             }}>Submit</button>
